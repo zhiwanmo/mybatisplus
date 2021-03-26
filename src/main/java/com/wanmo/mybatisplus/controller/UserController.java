@@ -1,5 +1,6 @@
 package com.wanmo.mybatisplus.controller;
 
+import com.wanmo.mybatisplus.common.Result;
 import com.wanmo.mybatisplus.entity.User;
 import com.wanmo.mybatisplus.service.UserService;
 import io.swagger.annotations.Api;
@@ -25,17 +26,17 @@ public class UserController {
 
     @ApiOperation(value = "获取单个用户信息")
     @GetMapping("get/{id}")
-    public User get(@PathVariable Long id) {
+    public Result get(@PathVariable Long id) {
         User user = userService.getById(id);
-        System.out.println(user);
-        return user;
+        return Result.ok(user);
     }
 
     @ApiOperation(value = "获取所有用户信息")
     @GetMapping("list")
-    public List<User> list() {
+    public Result list() {
+        int a = 1/0;
+
         List<User> list = userService.list();
-        System.out.println(list);
-        return list;
+        return Result.ok(list);
     }
 }
