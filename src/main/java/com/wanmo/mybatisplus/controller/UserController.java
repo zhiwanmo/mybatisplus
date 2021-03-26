@@ -1,6 +1,6 @@
 package com.wanmo.mybatisplus.controller;
 
-import com.wanmo.mybatisplus.common.Result;
+import com.wanmo.mybatisplus.common.result.Result;
 import com.wanmo.mybatisplus.entity.User;
 import com.wanmo.mybatisplus.service.UserService;
 import io.swagger.annotations.Api;
@@ -34,8 +34,6 @@ public class UserController {
     @ApiOperation(value = "获取所有用户信息")
     @GetMapping("list")
     public Result list() {
-        int a = 1/0;
-
         List<User> list = userService.list();
         return Result.ok(list);
     }
